@@ -12,7 +12,7 @@ function addTask() {
     let taskname = document.getElementById('taskName').value.trim();
 
     if (taskname === '') {
-        alert('Enter the task name');
+        alert('Please Enter the task name');
         return;
 
     }
@@ -26,10 +26,9 @@ function addTask() {
         console.log(taskobj);
         tasks.push(taskobj);
         localStorage.setItem('tasks', JSON.stringify(tasks));
-
-        taskname.value = '';
         displayTask();
         alert('Task added successfully');
+        location.reload();
     }
 
 }
@@ -67,7 +66,6 @@ function displayTask() {
                 localStorage.setItem('tasks',JSON.stringify(tasks)); // Restore the local storage
                 alert('Sub task added');
                 displayTask();
-                subTaskInpt.value = '';  
             }
         })
         li.appendChild(subTaskbtn);
